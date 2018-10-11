@@ -25,6 +25,7 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,6 +33,8 @@ filetype plugin indent on    " required
 
 
 " my stuff
+
+set directory=$HOME/.vim/swapfiles//
 
 syntax on
 filetype plugin indent on
