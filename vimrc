@@ -26,6 +26,8 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
