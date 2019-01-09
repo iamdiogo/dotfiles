@@ -9,6 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'mxw/vim-jsx'
@@ -32,6 +33,15 @@ filetype plugin indent on    " required
 " my stuff
 
 set directory=$HOME/.vim/swapfiles//
+
+" set encoding=utf-8
+
+" Extensions custom settings
+let g:ale_python_pylint_options = '--load-plugins pylint_django'
+let g:airline#extensions#branch#enabled=1
+
+" let g:airline_powerline_fonts=1
+" let g:Powerline_symbols='utf-8'
 
 syntax on
 filetype plugin indent on
