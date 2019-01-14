@@ -32,5 +32,8 @@ alias l='ranger'
 ########################
 
 
+# Enable Git autocomplete
+[[ -f /usr/share/git/completion/git-completion.bash ]] && . /usr/share/git/completion/git-completion.bash
+
 # Append my top secret alias
 [[ -f ~/.secret_alias ]] && . ~/.secret_alias
