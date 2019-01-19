@@ -36,8 +36,8 @@
 *.color15:      #f1efee
 
 !opacity
-*.alpha: 250
+*.alpha: 230
 
 !font
 ! *.font:	Source Code Pro:pixelsize=16:antialias=true:autohint=true;
-*.font:	Mono:pixelsize=16:antialias=true:autohint=true;
+*.font:	Mono:pixelsize=14:antialias=true:autohint=true;
