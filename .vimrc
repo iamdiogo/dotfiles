@@ -40,14 +40,15 @@ filetype plugin indent on    " required
 
 set directory=$HOME/.vim/swapfiles//
 
-" set encoding=utf-8
+set encoding=utf-8
 
 " Extensions custom settings
 let g:ale_python_pylint_options = '--load-plugins pylint_django'
 let g:airline#extensions#branch#enabled=1
+let g:airline_powerline_fonts = 1
+let g:ftplugin_sql_omni_key = '<C-j>' " hotfix slow ^C while on SQL files
 
-" let g:airline_powerline_fonts=1
-" let g:Powerline_symbols='utf-8'
+let g:ale_completion_enabled = 1
 
 syntax on
 filetype plugin indent on
