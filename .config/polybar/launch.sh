@@ -1,3 +1,5 @@
+sleep 1
+
 # terminate all running instances
 killall -q polybar
 

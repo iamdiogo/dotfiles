@@ -5,11 +5,22 @@
 alias ls='ls --color=auto'
 PS1='[\[\e[1m\]\[\e[32m\]\u@\h \[\e[34m\]\W\[\e[0m\]]\$ '
 
+# If I have a bin directory, add it to PATH
+if [ -d "$HOME/bin" ] ; then
+  PATH="$PATH:$HOME/bin"
+fi
 
 ########################
 #         Alias        #
 ########################
 
+alias gs='git status'
+alias ga='git add -p'
+alias gc='git commit -S -m'
+alias gp='git pull'
+
+# gimme colorful grep
+alias grep='grep --color=auto'
 
 # sets the wallpaper
 alias sw='feh --bg-scale ~/Pictures/Wallpapers/wall.jpg'

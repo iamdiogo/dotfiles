@@ -1,3 +1,7 @@
+""""""""""""""""""""""""
+" My Vim configuration "
+""""""""""""""""""""""""
+
 " vundle stuff
 
 set nocompatible              " be iMproved, required
@@ -22,9 +26,11 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'shime/vim-livedown'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'mattn/emmet-vim'
+" Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,7 +65,7 @@ set hlsearch
 
 set ttymouse=xterm2
 set mouse=a
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 colorscheme codedark
 

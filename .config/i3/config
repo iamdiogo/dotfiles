@@ -6,17 +6,6 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:monospace 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
 # My default gaps setting
 gaps inner 15
 gaps outer 15
@@ -143,10 +132,13 @@ bindsym $mod+Shift+t exec "betterlockscreen -l dimblur"
 # opens browser
 bindsym $mod+Shift+y exec "chromium --password-store=gnome"
 
+# opens file explorer
+bindsym $mod+Shift+f exec "xdg-open ."
+
 # screenshots all screens. requires xclip and scrot.
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
+bindsym --release Print exec escrotum 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
 # screenshots area. requires xclip and scrot
-bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
+bindsym --release Shift+Print exec escrotum  -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,11 +177,17 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
+# set my keyboard layout
+exec "setxkbmap -layout pt,us"
+
 # update my term visuals
 exec xrdb ~/.Xresources
 
+# set my monitor layout
+exec --no-startup-id $HOME/.config/xrandr/auto-monitor.sh
+
 # set my wallpaper
-exec feh --bg-scale $HOME/Pictures/Wallpapers/wall.jpg
+exec_always feh --bg-scale $HOME/Pictures/Wallpapers/wall.jpg
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

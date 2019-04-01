@@ -17,12 +17,16 @@
   Control+Alt + Left
 
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+"amixer -q sset Master 5%+"
   XF86AudioRaiseVolume
+"amixer -q sset Master 1%+"
+  Shift + XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+"amixer -q sset Master 5%-"
    XF86AudioLowerVolume
+"amixer -q sset Master 1%-"
+  Shift + XF86AudioLowerVolume
 
 # Mute volume
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
@@ -36,3 +40,10 @@
 "xbacklight -dec 10"
    XF86MonBrightnessDown
 
+# Setup my monitor layout
+"$HOME/.config/xrandr/auto-monitor.sh"
+   XF86Display
+
+# Display Radio nova's now playing
+"nova -p"
+  Shift + Alt + P
