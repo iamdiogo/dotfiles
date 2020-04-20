@@ -68,6 +68,10 @@ set backspace=indent,eol,start
 
 set runtimepath+=$GOROOT/misc/vim
 
+" Send file change events
+set nobackup
+set nowritebackup
+
 set ruler
 set relativenumber
 
@@ -80,13 +84,21 @@ set clipboard^=unnamed,unnamedplus
 colorscheme codedark
 "colorscheme diogolight
 
-noremap <Space> <C-w><C-w>
+nmap <Space> <C-w><C-w>
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
 map ; :Files<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+map q: <Nop>
+nnoremap Q <nop>
 
 set smartcase
 set ignorecase

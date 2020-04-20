@@ -42,3 +42,7 @@
 ! *.font:	Source Code Pro:pixelsize=16:antialias=true:autohint=true;
 ! *.font:	Mono:pixelsize=14:antialias=true:autohint=true;
 *.font:	Hack:pixelsize=14:antialias=true:autohint=true;
+
+
+!Xft.dpi: 125
+!*.font:	Hack:pixelsize=18:antialias=true:autohint=true;

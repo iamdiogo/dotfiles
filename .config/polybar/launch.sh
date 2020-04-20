@@ -6,12 +6,17 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-if type "xrandr"; then
+if [ "$POLYBAR_MODE" -eq "1" ] && type "xrandr" ; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload main &
+    if [ $m == 'eDP-1' ] || [ $m == 'eDP-1-1' ]; then
+      echo $m
+      echo 'flex end'
+      MONITOR=$m polybar --reload flex &
+    else
+      echo $m
+      MONITOR=$m polybar --reload main &
+    fi
   done
 else
-  polybar --reload main &
+  MONITOR="eDP-1" polybar --reload main_single &
 fi
-
-

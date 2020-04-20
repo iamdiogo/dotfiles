@@ -28,21 +28,45 @@
 "amixer -q sset Master 1%-"
   Shift + XF86AudioLowerVolume
 
+# Mute sound
+"amixer -q sset Master toggle"
+  XF86AudioMute
+
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle"
-   XF86AudioMute
+#"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   #XF86AudioMute
+
+# Suspend
+#"systemctl suspend"
+
+# Change wallpaper
+"systemctl --user restart random_wallpaper.service"
+  Alt + Shift + N
 
 # Increase backlight
-"xbacklight -inc 10"
+"light -A 10"
    XF86MonBrightnessUp
+"light -A 1"
+   Shift + XF86MonBrightnessUp
 
 # Decrease backlight
-"xbacklight -dec 10"
+"light -U 10"
    XF86MonBrightnessDown
+"light -U 1"
+   Shift + XF86MonBrightnessDown
+
+# Lock computer
+"betterlockscreen -l dimblur"
+  Mod4 + l
+
+"$HOME/bin/temp.sh"
+  Mod4 + b
 
 # Setup my monitor layout
 "$HOME/.config/xrandr/auto-monitor.sh"
-   XF86Display
+  Mod4 + p
+
+#XF86Display
 
 # Display Radio nova's now playing
 "nova -p"

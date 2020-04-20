@@ -1,5 +1,6 @@
 export EDITOR="vim"
-export TERMINAL="st"
+export TERMINAL="termite"
 export BROWSER="chromium"
 export FILE="ranger"
 export READER="zathura"
+export POLYBAR_MODE="1"

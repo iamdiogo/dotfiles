@@ -1,22 +1,26 @@
 # i3 config file (v4)
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
 
 # My default gaps setting
-gaps inner 15
-gaps outer 15
+#gaps inner 15
+gaps inner 0
+gaps outer 0 #15
 client.focused #555555 #555555 #ffffff #2e9ef4     #ed7a00
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
+
+hide_edge_borders smart
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $HOME/.config/i3/tmux_session.sh
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -75,9 +79,14 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# enable/disable gaps
+bindsym $mod+Shift+z			gaps inner all set 0; gaps outer all set 0
+bindsym $mod+Shift+x			gaps inner all set 0; gaps outer all set 15
+
 # change window paddings
 bindsym $mod+z			gaps inner current plus 5
 bindsym $mod+x		gaps inner current minus 5
+#bindsym $mod+c    gaps outer current toggle
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -132,6 +141,9 @@ bindsym $mod+Shift+t exec "betterlockscreen -l dimblur"
 # opens browser
 bindsym $mod+Shift+y exec "chromium --password-store=gnome"
 
+# opens browser alternative
+bindsym $mod+Shift+u exec "qutebrowser"
+
 # opens file explorer
 bindsym $mod+Shift+f exec "xdg-open ."
 
@@ -178,16 +190,36 @@ bindsym $mod+r mode "resize"
 #}
 
 # set my keyboard layout
-exec "setxkbmap -layout pt,us"
+exec "setxkbmap -layout pt"
 
 # update my term visuals
 exec xrdb ~/.Xresources
 
 # set my monitor layout
-exec --no-startup-id $HOME/.config/xrandr/auto-monitor.sh
+# exec --no-startup-id $HOME/.config/xrandr/auto-monitor.sh
+
+#exec --no-startup-id xcompmgr -c &
+exec --no-startup-id compton -b
+
+exec --no-startup-id i3-msg 'exec slack'
+exec --no-startup-id i3-msg 'exec discord'
+
+exec --no-startup-id systemctl --user restart random_wallpaper.service
+
+# enable touchpad tap
+exec --no-startup-id xinput set-prop "MSFT0001:01 06CB:7F27 Touchpad" "libinput Tapping Enabled" 1
+
+exec --no-startup-id nm-applet
+
+# exec --no-startup-id blueman-applet
 
 # set my wallpaper
-exec_always feh --bg-scale $HOME/Pictures/Wallpapers/wall.jpg
+# exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/cuphead.jpg
+#exec --no-startup-id /home/diogo/bin/cw
+
+exec_always --no-startup-id $HOME/.config/xrandr/auto-monitor.sh
 
 # launch polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec i3-msg workspace 1
