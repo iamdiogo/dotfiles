@@ -8,13 +8,25 @@
 "playerctl play-pause"
   Control + space
 
+"mpc toggle"
+  XF86AudioPlay
+
+"date +'It is %H:%M' | espeak"
+  XF86AudioPause
+
 # Next media
 "playerctl next"
   Control+Alt + Right
 
+"mpc next"
+  XF86AudioNext
+
 # Previous media
 "playerctl previous"
   Control+Alt + Left
+
+"mpc prev"
+  XF86AudioPrev
 
 # Increase volume
 "amixer -q sset Master 5%+"
@@ -56,15 +68,36 @@
    Shift + XF86MonBrightnessDown
 
 # Lock computer
-"betterlockscreen -l dimblur"
+"betterlockscreen -l -t 'Desbloquear para inovar'"
   Mod4 + l
 
-"$HOME/bin/temp.sh"
+"betterlockscreen -l -t 'Desbloquear para inovar'"
+  XF86Eject
+
+# Change display temperature
+"$HOME/.scripts/temp.sh"
   Mod4 + b
 
-# Setup my monitor layout
+# Take an area screenshot
+"escrotum  -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'"
+  XF86Launch7
+
+# Take a fullscreen screenshot
+"escrotum 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'"
+  Shift + XF86Launch7
+  
+
+# Setup monitor layout
 "$HOME/.config/xrandr/auto-monitor.sh"
   Mod4 + p
+
+# Set keyboard layout
+# "setxkbmap -layout pt -variant mac ; setxkbmap -option altwin:swap_alt_win -option lv3:ralt_switch,eurosign:e"
+#   Control + j
+
+# Kill spotify
+# "killall spotify"
+#   Control + j
 
 #XF86Display
 

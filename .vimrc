@@ -29,12 +29,13 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'shime/vim-livedown'
-Plugin 'xuhdev/vim-latex-live-preview'
+" Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'lervag/vimtex'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'mattn/emmet-vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'wizicer/vim-jison'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,7 +50,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Extensions custom settings
 let g:ale_python_pylint_options = '--load-plugins pylint_django'
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0 " 1
+set omnifunc=ale#completion#OmniFunc
 
 let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 1

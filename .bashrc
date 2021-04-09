@@ -6,8 +6,8 @@ alias ls='ls --color=auto'
 PS1='[\[\e[1m\]\[\e[32m\]\u@\h \[\e[34m\]\W\[\e[0m\]]\$ '
 
 # If I have a bin directory, add it to PATH
-if [ -d "$HOME/bin" ] ; then
-  PATH="$PATH:$HOME/bin"
+if [ -d "$HOME/.scripts" ] ; then
+  PATH="$PATH:$HOME/.scripts"
 fi
 
 if [ -d "$HOME/.installs/flutter/bin" ] ; then
@@ -70,6 +70,9 @@ alias web='python -m http.server 8000'
 
 # tmux #
 alias tmuxa='tmux attach-session'
+
+# equalizer #
+alias eq='pulseaudio-equalizer-gtk'
 
 export ANDROID_HOME=/home/diogo/.installs/android-studio-installed
 

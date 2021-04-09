@@ -1,3 +1,18 @@
 #xcompmgr -c &
-compton &
+
+# Visual
+compton & disown
+
+# Music
+mpd
+
+# Keybinds
 xbindkeys
+
+# Keyboard
+setxkbmap -layout pt -variant mac
+setxkbmap -option altwin:swap_alt_win -option lv3:ralt_switch,eurosign:e
+
+
+# Applets
+nm-applet & disown

@@ -13,8 +13,11 @@ if type "xrandr"; then
   else
     xrandr --output VGA-1 --off
     xrandr --output HDMI-1 --off
-    xrandr --dpi 125
-    xrdb $HOME/.Xresources_single
+    xrandr --output DVI-I-1 --auto --left-of HDMI-0 --primary
+    # xrandr --dpi 125
+    xrandr --dpi 100
+    # xrdb $HOME/.Xresources_single
+    xrdb $HOME/.Xresources
   fi
 fi
 
